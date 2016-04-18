@@ -2,4 +2,4 @@ server/vendor
 server/README.md
 client/node_modules
 client/README.md
-client/keys.php
+server/keys.php
