@@ -62,22 +62,22 @@ All functions have three parameters: params, success, and error. Params are data
 
 ## Facebook
 
-##### postFacebookStatus(params, success, error)
+#### postFacebookStatus(params, success, error)
 
 **params**   
 message (required) : Text to post as Facebook status
 
-##### postFacebookLink(params, success, error)
+#### postFacebookLink(params, success, error)
 **params**    
 link (required) : Link to a webpage you wish to share     
 message : Text to go along with link
 
-##### postFacebookPhoto(params, success, error)
+#### postFacebookPhoto(params, success, error)
 **params**    
 source (required) : Path to photo you wish to share          
 message: Text to go along with photo
 
-##### facebookIntent(params)
+#### facebookIntent(params)
 No OAuth flow is required for this function   
 **params**      
 picture : Path to image you wish to share       
@@ -85,26 +85,26 @@ caption : Text to go inside Facebook post
 link : URL to go to when the post is clicked
 
 ## Twitter
-##### postTwitterTweet(params, success, error)
+#### postTwitterTweet(params, success, error)
 **params**      
 message (required) : Text to tweet
 
-##### postTwitterPhoto(params, success, error)
+#### postTwitterPhoto(params, success, error)
 **params**     
 source (required) : source to photo you wish to share     
 message : text to go along with image     
 
 ## Tumblr
 Tumblr has a little bit of a different flow. See the examples section if you are confused.
-##### getTumblrBlogs(callback)
+#### getTumblrBlogs(callback)
 Since Tumblr requires you to send which blog you want to post to, this function **MUST** be called before anything else Tumblr related. When the callback function is called, you will be passed an array of the user's blogs. Use this array for the 'blogName' param in every other request. See examples section for examples.
 
-##### postTumblrText(params, success, error)
+#### postTumblrText(params, success, error)
 **params**     
 message (required) : Text to put in post     
 blogName (required) : which blog to post to
 
-##### postTumblrPhoto(params, success, error)
+#### postTumblrPhoto(params, success, error)
 **params**     
 source (required) : source of photo you wish to share     
 blogName (required) : which blog to share to     
