@@ -44,6 +44,18 @@ export default class Home extends Component {
 
 	}
 
+	twTweet() {
+
+		this.share.postTwitterTweet({message: "TEST TWEET YO"}, this.success.bind(this));
+
+	}
+
+	twPhoto() {
+
+		this.share.postTwitterPhoto({source: "http://wallpapercave.com/wp/kaSVIDm.jpg", message: "TEST PHOTO"}, this.success.bind(this));
+
+	}
+
 	success() {
 		alert("DID IT!");
 	}
@@ -58,6 +70,12 @@ export default class Home extends Component {
 				<div onClick={this.fbPhoto.bind(this)}>FACEBOOK PHOTO</div>
 
 				<div onClick={this.fbIntent.bind(this)}>FACEBOOK INTENT</div>
+
+				<br/><br/>
+
+				<div onClick={this.twTweet.bind(this)}>TWITTER TWEET</div>
+
+				<div onClick={this.twPhoto.bind(this)}>TWITTER PHOTO</div>
 			</div>
 		);
 	}

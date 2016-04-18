@@ -1,6 +1,6 @@
 import Reqwest from 'reqwest';
 import Facebook from './facebook/facebook';
-
+import Twitter from './twitter/twitter';
 export default class Share {
 
 	constructor(config) {
@@ -20,6 +20,10 @@ export default class Share {
 			this.facebook = new Facebook(this.pathToServer, config.facebookAppId);
 		}
 
+		if(this.twitterEnabled) {
+			this.twitter = new Twitter(this.pathToServer);
+		}
+
 	}
 
 	postFacebookStatus(params, callback, error) {
@@ -30,8 +34,6 @@ export default class Share {
 			this.throwMissingParamException();
 
 		this.facebook.postFacebookStatus(params, callback, error);
-
-
 	}
 
 	postFacebookLink(params, success, error) {
@@ -42,7 +44,6 @@ export default class Share {
 			this.throwMissingParamException();
 
 		this.facebook.postFacebookLink(params, success, error);
-
 	}
 
 	postFacebookPhoto(params, success, error) { 
@@ -53,7 +54,6 @@ export default class Share {
 			this.throwMissingParamException();
 
 		this.facebook.postFacebookPhoto(params, success, error);
-
 	}
 
 	postFacebookVideo(params, success, error) {
@@ -64,7 +64,6 @@ export default class Share {
 			this.throwMissingParamException();
 
 		this.facebook.postFacebookVideo(params, success, error)
-
 	}
 
 	facebookIntent(params) {
@@ -75,10 +74,29 @@ export default class Share {
 			this.throwMissingParamException();
 
 		this.facebook.intent(params);
+	}
+
+	postTwitterTweet(params, success, error) {
+
+		if(!this.twitterEnabled) return;
+
+		if(!params)
+			this.throwMissingParamException();
+
+		this.twitter.postTweet(params, success, error)
 
 	}
 
+	postTwitterPhoto(params, success, error) {
 
+		if(!this.twitterEnabled) return;
+
+		if(!params)
+			this.throwMissingParamException();
+
+		this.twitter.postPhoto(params, success, error)
+
+	}
 
 	throwMissingParamException(missing) {
 
@@ -87,7 +105,6 @@ export default class Share {
 		} else {
 			throw "Missing required param.";
 		}
-
 	}
 
 }

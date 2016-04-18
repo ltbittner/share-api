@@ -12,6 +12,7 @@ if(!session_id()) {
 }
 
 require_once 'vendor/autoload.php';
+
 require_once('classes/restwork.php');
 require_once('classes/request.php');
 require_once('classes/utility.php');

@@ -48,6 +48,7 @@
     "webpack-hot-middleware": "^2.6.0"
   },
   "dependencies": {
-    "request": "^2.71.0"
+    "request": "^2.71.0",
+    "reqwest": "^2.0.5"
   }
 }
