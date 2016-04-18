@@ -104,6 +104,7 @@ export default class Home extends Component {
 				<br/><br/>
 
 				<div onClick={this.tumblrText.bind(this)}>TUMBLR TEXT</div>
+				
 				<div onClick={this.tumblrPhoto.bind(this)}>TUMBLR PHOTO</div>
 			</div>
 		);
