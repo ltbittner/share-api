@@ -80,6 +80,7 @@ export default class Facebook {
 
 			var int = setInterval(() => {
 				if(w.closed) {
+					this.loggedIn = true;
 					clearInterval(int);
 					callback();
 				}

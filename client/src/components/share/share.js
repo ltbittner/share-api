@@ -1,6 +1,8 @@
 import Reqwest from 'reqwest';
 import Facebook from './facebook/facebook';
 import Twitter from './twitter/twitter';
+import Tumblr from './tumblr/tumblr';
+
 export default class Share {
 
 	constructor(config) {
@@ -22,6 +24,10 @@ export default class Share {
 
 		if(this.twitterEnabled) {
 			this.twitter = new Twitter(this.pathToServer);
+		}
+
+		if(this.tumblrEnabled) {
+			this.tumblr = new Tumblr(this.pathToServer);
 		}
 
 	}
@@ -95,6 +101,26 @@ export default class Share {
 			this.throwMissingParamException();
 
 		this.twitter.postPhoto(params, success, error)
+
+	}
+
+	getTumblrBlogs(callback) {
+
+		let i = this.tumblr.getBlogs();
+		i.then((val) => {
+			callback(val);
+		});
+
+	}
+
+	postTumblrText(params, success, error) {
+
+		if(!this.tumblrEnabled) return;
+
+		if(!params)
+			this.throwMissingParamException();
+
+		this.tumblr.postText(params, success, error);
 
 	}
 

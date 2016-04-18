@@ -6,8 +6,8 @@ return array(
   "facebook_permissions" => "email,user_likes,publish_actions,user_photos,user_events", //comma seperated list (1)
   "twitter_consumer_key" => "M7PF0ZXzcHbZvsQ5O2pyBECwu", //Twitter consumer key
   "twitter_consumer_secret" => "EZqh9lkHqeKWYmT18TFDfNJFw0hUhwGXCLMra7c7nQkyMrtIAS", //Twitter consumer secret key,
-  "tumblr_consumer_key" => "OsuIR0LI9BqY9X6KUOxLW5oebscFst1Nt7dInTpYa0Yv3UA5th",
-  "tumblr_consumer_secret" => "7BkohpSuKhfsi96ljPpi8z1L68dOGKMVoH3nDFPCoGZ1zyVRnY",
+  "tumblr_consumer_key" => "IF23gs71Fqjd6Ja7C2nMrUGx9f8yj7f0JH0ralXCfnUKHeo63a",
+  "tumblr_consumer_secret" => "sURT5M8AuFGSJPiyroqqzpfsc6oncKoL3fjtKcdip15OpbrjOm",
   "pinterest_app_id" => "4812795452487387075",
   "pinterest_app_secret" => "e393fe6b2912909e9c739ca4172ed64df68e656150428e320cf031b00b0df7a5",
   "linkedin_client_id" => "77z04o8j3d0x8g",

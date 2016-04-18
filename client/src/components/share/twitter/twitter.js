@@ -57,6 +57,7 @@ export default class Twitter {
 
 		var int = setInterval(() => {
 			if(w.closed) {
+				this.loggedIn = true;
 				clearInterval(int);
 				callback();
 			}

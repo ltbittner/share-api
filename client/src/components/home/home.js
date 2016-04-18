@@ -56,6 +56,18 @@ export default class Home extends Component {
 
 	}
 
+	tumblrText() {
+		
+		let blog = this.share.getTumblrBlogs(this.tumblrTextCallback.bind(this));
+		// 
+	}
+
+	tumblrTextCallback(blogs) {
+
+		this.share.postTumblrText({message: "TEST", blogName: blogs[0], title: "TEST" }, this.success.bind(this));
+
+	}
+
 	success() {
 		alert("DID IT!");
 	}
@@ -76,6 +88,10 @@ export default class Home extends Component {
 				<div onClick={this.twTweet.bind(this)}>TWITTER TWEET</div>
 
 				<div onClick={this.twPhoto.bind(this)}>TWITTER PHOTO</div>
+
+				<br/><br/>
+
+				<div onClick={this.tumblrText.bind(this)}>TUMBLR TEXT</div>
 			</div>
 		);
 	}
