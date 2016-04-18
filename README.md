@@ -27,13 +27,13 @@ Drag contents of server directory into a publicly accessable directory, and you'
 
 # Server Setup
 ---
-Open up 'keys.php' in the root directory. This is will you need to fill in your keys for the social media platforms you will be using. These can be obtained by creating apps in the developer platforms.
+Open up 'keys.php' in the root directory. This is where you will need to fill in your keys for the social media platforms you will be using. These can be obtained by creating apps in the developer platforms.
 
 Once you're done getting your keys, open up 'config/settings.php'. There are three options here that you need to fill out.
 
 - **domain**:  The fully qualified domain name of where the API exists (index.php). Please leave out any trailing /'s
 - **enable_request_limiting**: Set to true if you want to set a max amount of requests per hour
-- ***max_requests_per_hour**: Max requests per hour. Only relevant is previous is set to true.
+- **max_requests_per_hour**: Max requests per hour. Only relevant is previous is set to true.
 
 
 # Usage
