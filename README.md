@@ -27,6 +27,9 @@ Drag contents of server directory into a publicly accessable directory, and you'
 
 # Server Setup
 ---
+**IMPORTANT** Rename 'keys.php.template' to 'keys.php'
+
+
 Open up 'keys.php' in the root directory. This is where you will need to fill in your keys for the social media platforms you will be using. These can be obtained by creating apps in the developer platforms.
 
 Once you're done getting your keys, open up 'config/settings.php'. There are three options here that you need to fill out.
