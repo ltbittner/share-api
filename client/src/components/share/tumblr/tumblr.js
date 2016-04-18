@@ -72,7 +72,7 @@ export default class Tumblr {
 			if(self.blogs != null){
 				resolve(self.blogs);
 				return;
-				
+
 			}
 
 			let w = window.open(this.loginLink);
@@ -110,6 +110,45 @@ export default class Tumblr {
 			this.text(params, success, error);
 
 		}
+
+	}
+
+	postPhoto(params, success, error) {
+
+		if(this.blogs == null) {
+
+			throw 'Must get user blogs before you can try to post';
+
+		} else {
+			this.photo(params, success, error);
+		}
+
+	}
+
+	photo(params, successCallback, errorCallback) {
+
+		if(!params.source)
+			throw "Missing 'source' param";
+
+		if(!params.blogName)
+			throw "Missing 'blogName' param";
+
+		Reqwest({
+			url: `${this.pathToServer}/tumblr/post/photo`,
+			method: "POST",
+			data: params,
+			withCredentials: true,
+			success: (resp) => {
+				let data = JSON.parse(resp);
+				if(data.status == 'success') {
+					if(successCallback)
+						successCallback();
+				} else {
+					if(errorCallback)
+						errorCallback();
+				}
+			}
+		});
 
 	}
 

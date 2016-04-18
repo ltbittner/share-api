@@ -115,12 +115,23 @@ export default class Share {
 
 	postTumblrText(params, success, error) {
 
-		if(!this.tumblrEnabled) return;
+		if(!this.tumblrEnabled) error();
 
 		if(!params)
 			this.throwMissingParamException();
 
 		this.tumblr.postText(params, success, error);
+
+	}
+
+	postTumblrPhoto(params, success, error) {
+
+		if(!this.tumblrEnabled) error();
+
+		if(!params)
+			this.throwMissingParamException();
+
+		this.tumblr.postPhoto(params, success, error);
 
 	}
 

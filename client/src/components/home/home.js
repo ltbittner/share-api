@@ -58,13 +58,25 @@ export default class Home extends Component {
 
 	tumblrText() {
 		
-		let blog = this.share.getTumblrBlogs(this.tumblrTextCallback.bind(this));
-		// 
+		this.share.getTumblrBlogs(this.tumblrTextCallback.bind(this));
+
 	}
 
 	tumblrTextCallback(blogs) {
 
 		this.share.postTumblrText({message: "TEST", blogName: blogs[0], title: "TEST" }, this.success.bind(this));
+
+	}
+
+	tumblrPhoto() {
+
+		this.share.getTumblrBlogs(this.tumblrPhotoCallback.bind(this));
+
+	}
+
+	tumblrPhotoCallback(blogs) {
+
+		this.share.postTumblrPhoto({source: "http://wallpapercave.com/wp/kaSVIDm.jpg", blogName: blogs[0], caption: "TEST"}, this.success.bind(this));
 
 	}
 
@@ -92,6 +104,7 @@ export default class Home extends Component {
 				<br/><br/>
 
 				<div onClick={this.tumblrText.bind(this)}>TUMBLR TEXT</div>
+				<div onClick={this.tumblrPhoto.bind(this)}>TUMBLR PHOTO</div>
 			</div>
 		);
 	}
