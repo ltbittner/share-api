@@ -38,6 +38,10 @@ export default class Home extends Component {
 
 	}
 
+	fbVideo() {
+		this.share.postFacebookVideo({source: "/Users/logan/Desktop/synopsis.mp4", description: "TEST"}, this.success.bind(this));
+	}
+
 	fbIntent() {
 
 		this.share.facebookIntent({picture: 'http://wallpapercave.com/wp/kaSVIDm.jpg', caption: "TEST"});
@@ -125,6 +129,8 @@ export default class Home extends Component {
 				<div onClick={this.fbLink.bind(this)}>FACEBOOK LINK</div>
 
 				<div onClick={this.fbPhoto.bind(this)}>FACEBOOK PHOTO</div>
+
+				<div onClick={this.fbVideo.bind(this)}>FACEBOOK VIDEO</div>
 
 				<div onClick={this.fbIntent.bind(this)}>FACEBOOK INTENT</div>
 

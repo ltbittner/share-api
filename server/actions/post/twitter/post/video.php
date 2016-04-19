@@ -18,7 +18,7 @@ class TwitterPostVideo extends RestWork {
 
 	    $access_token = $_SESSION['access_token'];
 	   	$connection = new TwitterOAuth($config['twitter_consumer_key'], $config['twitter_consumer_secret'], $access_token['oauth_token'], $access_token['oauth_token_secret']);
-	   	// $connection->setTimeouts(5, 60);
+	   	$connection->setTimeouts(5, 60);
 
 	    $media1 = $connection->upload('media/upload', array('media' => $source, 'media_type' => 'video/mp4'), true);
 

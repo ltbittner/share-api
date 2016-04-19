@@ -80,6 +80,11 @@ message : Text to go along with link
 source (required) : Path to photo you wish to share          
 message: Text to go along with photo
 
+#### postFacebookVideo(params, success, error)
+**params**    
+source (required) : source of video to upload      
+description : text to go with video    
+
 #### facebookIntent(params)
 No OAuth flow is required for this function   
 **params**      

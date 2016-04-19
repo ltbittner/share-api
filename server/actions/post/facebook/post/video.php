@@ -24,9 +24,6 @@ class FacebookPostVideo extends RestWork {
 	        $data['description'] = $_POST['description'];
 	    }
 
-	    if(isset($_POST['title']) && $_POST['title'] != ""){
-	        $data['title'] = $_POST['title'];
-	    }
 
 	    try {
 	      $response = $fb->post('/me/videos', $data, $_SESSION['facebook_access_token']);
