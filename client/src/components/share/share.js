@@ -34,7 +34,7 @@ export default class Share {
 
 	postFacebookStatus(params, callback, error) {
 
-		if(!this.facebookEnabled)  return;
+		if(!this.facebookEnabled)  error("Facebook is not enabled");
 
 		if(!params)
 			this.throwMissingParamException();
@@ -44,7 +44,7 @@ export default class Share {
 
 	postFacebookLink(params, success, error) {
 
-		if(!this.facebookEnabled) return;
+		if(!this.facebookEnabled) error("Facebook is not enabled");
 
 		if(!params)
 			this.throwMissingParamException();
@@ -54,7 +54,7 @@ export default class Share {
 
 	postFacebookPhoto(params, success, error) { 
 
-		if(!this.facebookEnabled) return;
+		if(!this.facebookEnabled) error("Facebook is not enabled");
 
 		if(!params)
 			this.throwMissingParamException();
@@ -64,7 +64,7 @@ export default class Share {
 
 	postFacebookVideo(params, success, error) {
 
-		if(!this.facebookEnabled) return;
+		if(!this.facebookEnabled) error("Facebook is not enabled");
 
 		if(!params)
 			this.throwMissingParamException();
@@ -74,7 +74,7 @@ export default class Share {
 
 	facebookIntent(params) {
 
-		if(!this.facebookEnabled) return;
+		if(!this.facebookEnabled) error("Facebook is not enabled");
 
 		if(!params)
 			this.throwMissingParamException();
@@ -84,7 +84,7 @@ export default class Share {
 
 	postTwitterTweet(params, success, error) {
 
-		if(!this.twitterEnabled) return;
+		if(!this.twitterEnabled) error("Twitter is not enabled");
 
 		if(!params)
 			this.throwMissingParamException();
@@ -95,7 +95,7 @@ export default class Share {
 
 	postTwitterPhoto(params, success, error) {
 
-		if(!this.twitterEnabled) return;
+		if(!this.twitterEnabled) error("Twitter is not enabled");
 
 		if(!params)
 			this.throwMissingParamException();
@@ -115,7 +115,7 @@ export default class Share {
 
 	getTumblrBlogs(callback) {
 
-		let i = this.tumblr.getBlogs();
+		let i = this.tumblr.getBlogs("Tumblr is not enabled");
 		i.then((val) => {
 			callback(val);
 		});
@@ -124,7 +124,7 @@ export default class Share {
 
 	postTumblrText(params, success, error) {
 
-		if(!this.tumblrEnabled) error();
+		if(!this.tumblrEnabled) error("Tumblr is not enabled");
 
 		if(!params)
 			this.throwMissingParamException();
@@ -135,7 +135,7 @@ export default class Share {
 
 	postTumblrPhoto(params, success, error) {
 
-		if(!this.tumblrEnabled) error();
+		if(!this.tumblrEnabled) error("Tumblr is not enabled");
 
 		if(!params)
 			this.throwMissingParamException();
@@ -146,7 +146,7 @@ export default class Share {
 
 	postTumblrLink(params, success, error) {
 
-		if(!this.tumblrEnabled) error();
+		if(!this.tumblrEnabled) error("Tumblr is not enabled");
 
 		if(!params)
 			this.throwMissingParamException();
@@ -157,7 +157,7 @@ export default class Share {
 
 	postTumblrVideo(params, success, error) {
 
-		if(!this.tumblrEnabled) error();
+		if(!this.tumblrEnabled) error("Tumblr is not enabled");
 
 		if(!params)
 			this.throwMissingParamException();
