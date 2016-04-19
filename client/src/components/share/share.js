@@ -104,6 +104,15 @@ export default class Share {
 
 	}
 
+	postTwitterVideo(params, success, error) {
+		if(!this.twitterEnabled) error("Twitter is not enabled");
+
+		if(!params)
+			this.throwMissingParamException();
+
+		this.twitter.postVideo(params, success, error)
+	}
+
 	twitterIntent(params) {
 
 		if(!params)

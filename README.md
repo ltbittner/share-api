@@ -97,6 +97,12 @@ message (required) : Text to tweet
 source (required) : source to photo you wish to share     
 message : text to go along with image   
 
+#### postTwitterVideo(params, success, error)  
+Uploading to twitter may take a while, pleaes be patient while waiting for the callback functions   
+**params**     
+source (required) : source to video you wish to upload (MP4 ONLY)     
+message : text to go along with video
+
 #### twitterIntent(params, success, error)     
 **params**     
 text : text to put in tweet      

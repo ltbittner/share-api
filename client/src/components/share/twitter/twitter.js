@@ -92,6 +92,44 @@ export default class Twitter {
 
 	}
 
+	postVideo(params, success, error) {
+
+		if(this.loggedIn == false) {
+
+			this.login(() => {this.video(params, success, error)});
+
+		} else {
+
+			this.video(params, success, error);
+
+		}
+
+	}
+
+	video(params, successCallback, errorCallback) {
+
+		if(!params.source)
+			throw "Missing 'source' param";
+
+		Reqwest({
+			url: `${this.pathToServer}/twitter/post/video`,
+			method: "POST",
+			data: params,
+			withCredentials: true,
+			success: (resp) => {
+				let data = JSON.parse(resp);
+				if(data.status == 'success') {
+					if(successCallback)
+						successCallback();
+				} else {
+					if(errorCallback)
+						errorCallback();
+				}
+			}
+		});
+
+	}
+
 	photo(params, successCallback, errorCallback) {
 
 		if(!params.source)

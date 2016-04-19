@@ -56,6 +56,12 @@ export default class Home extends Component {
 
 	}
 
+	twVideo() {
+		
+		this.share.postTwitterVideo({source: '/Users/logan/Desktop/synopsis.mp4', message: "TEST"}, this.success.bind(this));
+
+	}
+
 	twIntent() {
 
 		this.share.twitterIntent({text: "TEST", url: "http://criminal.movie"});
@@ -129,6 +135,8 @@ export default class Home extends Component {
 				<div onClick={this.twPhoto.bind(this)}>TWITTER PHOTO</div>
 
 				<div onClick={this.twIntent.bind(this)}>TWITTER INTENT</div>
+
+				<div onClick={this.twVideo.bind(this)}>TWITTER VIDEO</div>
 
 				<br/><br/>
 
