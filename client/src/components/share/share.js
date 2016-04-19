@@ -104,6 +104,15 @@ export default class Share {
 
 	}
 
+	twitterIntent(params) {
+
+		if(!params)
+			this.throwMissingParamException();
+
+		this.twitter.intent(params);
+
+	}
+
 	getTumblrBlogs(callback) {
 
 		let i = this.tumblr.getBlogs();
@@ -132,6 +141,17 @@ export default class Share {
 			this.throwMissingParamException();
 
 		this.tumblr.postPhoto(params, success, error);
+
+	}
+
+	postTumblrLink(params, success, error) {
+
+		if(!this.tumblrEnabled) error();
+
+		if(!params)
+			this.throwMissingParamException();
+
+		this.tumblr.postLink(params, success, error);
 
 	}
 

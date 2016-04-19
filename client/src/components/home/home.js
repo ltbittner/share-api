@@ -56,6 +56,12 @@ export default class Home extends Component {
 
 	}
 
+	twIntent() {
+
+		this.share.twitterIntent({text: "TEST", url: "http://criminal.movie"});
+
+	}
+
 	tumblrText() {
 		
 		this.share.getTumblrBlogs(this.tumblrTextCallback.bind(this));
@@ -80,6 +86,16 @@ export default class Home extends Component {
 
 	}
 
+	tumblrLink() {
+
+		this.share.getTumblrBlogs(this.tumblrLinkCallback.bind(this));
+	}
+
+	tumblrLinkCallback(blogs) {
+
+		this.share.postTumblrLink({url: 'http://criminal.movie', title: 'CRIMINAL MOVIE', blogName: blogs[0]}, this.success.bind(this));
+	}
+
 	success() {
 		alert("DID IT!");
 	}
@@ -101,11 +117,15 @@ export default class Home extends Component {
 
 				<div onClick={this.twPhoto.bind(this)}>TWITTER PHOTO</div>
 
+				<div onClick={this.twIntent.bind(this)}>TWITTER INTENT</div>
+
 				<br/><br/>
 
 				<div onClick={this.tumblrText.bind(this)}>TUMBLR TEXT</div>
 				
 				<div onClick={this.tumblrPhoto.bind(this)}>TUMBLR PHOTO</div>
+
+				<div onClick={this.tumblrLink.bind(this)}>TUMBLR LINK</div>
 			</div>
 		);
 	}

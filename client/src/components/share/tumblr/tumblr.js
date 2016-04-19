@@ -125,6 +125,43 @@ export default class Tumblr {
 
 	}
 
+	postLink(params, success, error) {
+
+		if(this.blogs == null) {
+			throw 'Must get user blogs before you can try to post';
+		} else {
+			this.link(params, success, error);
+		}
+
+	}
+
+	link(params, successCallback, errorCallback) {
+
+		if(!params.url)
+			throw "Missing 'url' param";
+
+		if(!params.blogName)
+			throw "Missing 'blogName' param";
+
+		Reqwest({
+			url: `${this.pathToServer}/tumblr/post/link`,
+			method: "POST",
+			data: params,
+			withCredentials: true,
+			success: (resp) => {
+				let data = JSON.parse(resp);
+				if(data.status == 'success') {
+					if(successCallback)
+						successCallback();
+				} else {
+					if(errorCallback)
+						errorCallback();
+				}
+			}
+		});
+
+	}
+
 	photo(params, successCallback, errorCallback) {
 
 		if(!params.source)

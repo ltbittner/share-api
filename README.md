@@ -95,7 +95,13 @@ message (required) : Text to tweet
 #### postTwitterPhoto(params, success, error)
 **params**     
 source (required) : source to photo you wish to share     
-message : text to go along with image     
+message : text to go along with image   
+
+#### twitterIntent(params, success, error)     
+**params**     
+text : text to put in tweet      
+url : website to share in tweet
+hashtags : comma seperated list of hashtags to include in tweet  
 
 ## Tumblr
 Tumblr has a little bit of a different flow. See the examples section if you are confused.
@@ -112,6 +118,14 @@ blogName (required) : which blog to post to
 source (required) : source of photo you wish to share     
 blogName (required) : which blog to share to     
 caption : caption of photo
+
+#### postTumblrLink(params, success, error)     
+**params**     
+url (required) : website you are sharing     
+blogName (required) : which bog to post to     
+title : title of website     
+description : short description of website      
+thumbnail : url of image to use as the thumbnail  (No image will be provided without)   
 
 # Examples
 

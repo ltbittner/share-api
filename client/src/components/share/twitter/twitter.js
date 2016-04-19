@@ -116,6 +116,28 @@ export default class Twitter {
 
 	}
 
+	intent(params) {
+		
+
+		let baseURL = 'http://twitter.com/intent/tweet?';
+
+		if(params.text)
+			baseURL += `text=${params.text}&`;
+
+		if(params.url)
+			baseURL += `url=${escape(params.url)}&`;
+
+		if(params.hashtags)
+			baseURL += `hashtags=${params.hashtags}`;
+
+		baseURL = baseURL.slice(0, -1);
+
+		window.open(baseURL);
+
+
+
+	}
+
 	tweet(params, successCallback, errorCallback) {
 
 		if(!params.message)
