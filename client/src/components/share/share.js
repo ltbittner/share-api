@@ -155,6 +155,16 @@ export default class Share {
 
 	}
 
+	postTumblrVideo(params, success, error) {
+
+		if(!this.tumblrEnabled) error();
+
+		if(!params)
+			this.throwMissingParamException();
+
+		this.tumblr.postVideo(params, success, error);
+	}
+
 	throwMissingParamException(missing) {
 
 		if(missing) {

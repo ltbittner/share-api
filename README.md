@@ -127,6 +127,11 @@ title : title of website
 description : short description of website      
 thumbnail : url of image to use as the thumbnail  (No image will be provided without)   
 
+#### postTumblrVideo(params, success, error)     
+**params**    
+source (required) : source of video you wish to share     
+caption : title of video
+
 # Examples
 
 ### Example Tumblr Flow

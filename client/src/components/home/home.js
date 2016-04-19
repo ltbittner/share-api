@@ -96,6 +96,17 @@ export default class Home extends Component {
 		this.share.postTumblrLink({url: 'http://criminal.movie', title: 'CRIMINAL MOVIE', blogName: blogs[0]}, this.success.bind(this));
 	}
 
+	tumblrVideo() {
+
+		this.share.getTumblrBlogs(this.tumblrVideoCallback.bind(this));
+
+	}
+
+	tumblrVideoCallback(blogs) {
+
+		this.share.postTumblrVideo({source: "/Users/logan/Desktop/synopsis.mp4", caption: "TEST VIDEO", blogName: blogs[0]}, this.success.bind(this));
+	}
+
 	success() {
 		alert("DID IT!");
 	}
@@ -126,6 +137,8 @@ export default class Home extends Component {
 				<div onClick={this.tumblrPhoto.bind(this)}>TUMBLR PHOTO</div>
 
 				<div onClick={this.tumblrLink.bind(this)}>TUMBLR LINK</div>
+
+				<div onClick={this.tumblrVideo.bind(this)}>TUMBLR VIDEO</div>
 			</div>
 		);
 	}
