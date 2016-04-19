@@ -10,6 +10,13 @@ class TwitterPostVideo extends RestWork {
 	    }
 	    $config = include("keys.php");
 	    $source = $_POST['source'];
+
+
+	    if(!$this->fileExists($source)) {
+	    	$this->generateErrorResponse("File does not exist");
+	    }
+
+
 	    $final = "";
 	    
 	    if(isset($_POST['message'])){
@@ -21,6 +28,10 @@ class TwitterPostVideo extends RestWork {
 	   	$connection->setTimeouts(5, 60);
 
 	    $media1 = $connection->upload('media/upload', array('media' => $source, 'media_type' => 'video/mp4'), true);
+
+	    if($connection->getLastHttpCode() < 200 || $connection->getLastHttpCode() > 299) {
+	    	$this->generateErrorResponse("Unable to upload video");
+	    }
 
 	    $parameters = array(
 	        'status' => $final,

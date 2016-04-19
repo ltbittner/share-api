@@ -16,6 +16,10 @@ class FacebookPostVideo extends RestWork {
 	      'default_graph_version' => 'v2.4',
 	    ]);
 
+	    if(!$this->fileExists($_POST['source'])) {
+	    	$this->generateErrorResponse("File does not exist");
+	    }
+
 	    $data = [
 	      'source' => $fb->videoToUpload($_POST['source']),
 	    ];

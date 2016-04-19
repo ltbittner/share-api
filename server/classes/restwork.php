@@ -15,6 +15,21 @@ abstract class RestWork {
 		die();
 	}
 
+	public function fileExists($source) {
+		if(strpos($source, 'http') !== false) {
+	    	$file = @get_headers($source);
+	    	if($file[0] == 'HTTP/1.1 404 Not Found') {
+	    		return false;
+	    	}
+	    } else {
+	    	if(!file_exists($source)) {
+	    		return false;
+	    	}
+	    }
+
+	    return true;
+	}
+
 	public function generateErrorResponse($response){
 		$this->_setHeaders();
 		$response = array(

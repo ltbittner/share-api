@@ -20,6 +20,10 @@ class TumblrPostVideo extends RestWork {
 
 	    $data = $_POST['source']; //base64_encode(file_get_contents($_POST['source']));
 
+	    if(!$this->fileExists($data)) {
+	    	$this->generateErrorResponse("File does not exist");
+	    }
+
 	    $blogName = $_POST['blogName'];
 
 	    $data = array(
