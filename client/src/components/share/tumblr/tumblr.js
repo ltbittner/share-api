@@ -14,7 +14,7 @@ export default class Tumblr {
 
 	}
 
-	checkTumblrLogin() {
+	checkTumblrLogin(callback) {
 		let self = this;
 		Reqwest({
 			url: `${this.pathToServer}/tumblr/check/loggedin`,
@@ -46,7 +46,7 @@ export default class Tumblr {
 				if(data.status == 'success') {
 					self.loginLink = data.response;
 				}
-			}
+			},
 		});
 	}
 
@@ -91,8 +91,17 @@ export default class Tumblr {
 								self.blogs = data.response;
 								resolve(self.blogs);
 							
+							} else {
+								self.blogs = null;
+								self.getTumblrLogin();
 							}
-						}
+						},
+						error: (resp) => {
+							self.blogs = null;
+							self.getTumblrLogin();
+							reject();
+
+						},
 					});
 				}
 			}, 500); 

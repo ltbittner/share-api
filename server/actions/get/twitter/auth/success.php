@@ -6,6 +6,11 @@ class TwitterAuthSuccess extends RestWork {
 		$config = include("keys.php");
 		$settings = include("config/settings.php");
 
+		if(isset($_GET['denied'])) {
+		 	echo "<script>window.close();</script>";
+   			die();
+		}
+
 		$request_token = [];
 	    $request_token['oauth_token'] = $_SESSION['oauth_token'];
 	    $request_token['oauth_token_secret'] = $_SESSION['oauth_token_secret'];

@@ -39,7 +39,7 @@ export default class Facebook {
 		 }(document, 'script', 'facebook-jssdk'));
 	}
 
-	checkFacebookLogin() {
+	checkFacebookLogin(callback) {
 		let self = this;
 		Reqwest({
 			url: `${this.pathToServer}/facebook/check/loggedin`,
@@ -49,6 +49,8 @@ export default class Facebook {
 				let data = JSON.parse(resp);
 				if(data.status == 'success') {
 					if(data.response == 'yes') {
+						if(callback)
+							callback();
 						self.loggedIn = true;
 					} else {
 						self.loggedIn = false;
@@ -80,9 +82,9 @@ export default class Facebook {
 
 			var int = setInterval(() => {
 				if(w.closed) {
-					this.loggedIn = true;
+					this.checkTwitterLogin(callback);
 					clearInterval(int);
-					callback();
+					
 				}
 			}, 500);
 

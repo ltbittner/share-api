@@ -14,7 +14,7 @@ export default class Twitter {
 
 
 
-	checkTwitterLogin() {
+	checkTwitterLogin(callback) {
 
 	
 		let self = this;
@@ -26,6 +26,7 @@ export default class Twitter {
 				let data = JSON.parse(resp);
 				if(data.status == 'success') {
 					if(data.response == 'yes') {
+						if(callback) callback();
 						self.loggedIn = true;
 					} else {
 						self.loggedIn = false;
@@ -57,9 +58,8 @@ export default class Twitter {
 
 		var int = setInterval(() => {
 			if(w.closed) {
-				this.loggedIn = true;
-				clearInterval(int);
-				callback();
+				this.checkTwitterLogin(callback);
+				clearInterval(int);			
 			}
 		}, 500);
 	}
@@ -192,8 +192,9 @@ export default class Twitter {
 					if(successCallback)
 						successCallback();
 				} else {
-					if(errorCallback)
-						errorCallback();
+					if(errorCallback) {
+						this.loggedin = false;
+					}
 				}
 			}
 		});

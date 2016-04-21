@@ -9,17 +9,25 @@ class TumblrAuthLogin extends RestWork {
 	    $requestHandler = $client->getRequestHandler();
 	    $requestHandler->setBaseUrl('https://www.tumblr.com/');
 
-	    $resp = $requestHandler->request('POST', 'oauth/request_token', array());
+	    try {
+	    	$resp = $requestHandler->request('POST', 'oauth/request_token', array());
+	    } 
+	    catch(Exception $ex) {
+	    	$this->generateErrorResponse("User did not log in");
+	    }
+	    
+
+
 
 	    $out = $result = $resp->body;
 	    $data = array();
 	    parse_str($out, $data);
 
-	    $callback = $config['domain'] . "/tumblr/login/success/";
+	    // $callback = $config['domain'] . "/tumblr/login/success/";
 	    $_SESSION['tumblr_temp_token'] = $data['oauth_token'];
 	    $_SESSION['tumblr_temp_secret'] = $data['oauth_token_secret'];
 	    
-	    $final = 'https://www.tumblr.com/oauth/authorize?oauth_token=' . $data['oauth_token'] . "&oauth_callback=" . $callback;
+	    $final = 'https://www.tumblr.com/oauth/authorize?oauth_token=' . $data['oauth_token'];
 
 	    $this->generateSuccessResponse($final);
 
