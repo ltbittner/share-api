@@ -271,6 +271,48 @@ export default class Facebook {
 		}
 	}
 
-	
+	getProfilePicture(params, success, error) {
+
+		if(this.loggedIn == false) {
+
+			this.login(() => {this.profilePicture(params, success, error)});
+
+		} else {
+
+			this.profilePicture(params, success, error);
+
+		}
+
+	}
+
+	profilePicture(params, successCallback, errorCallback) {
+
+		Reqwest({
+			url: `${this.pathToServer}/facebook/user/picture`,
+			method: "GET",
+			data: params,
+			withCredentials: true,
+			success: (resp) => {
+				let data = JSON.parse(resp);
+				if(data.status == 'success') {
+					if(successCallback)
+						successCallback(data.response.picture.url);
+				} else {
+					if(errorCallback)
+						errorCallback();
+				}
+			}
+		});
+
+	}
 
 }
+
+
+
+
+
+
+
+
+

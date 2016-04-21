@@ -8,8 +8,4 @@ return array(
   "twitter_consumer_secret" => "", //Twitter consumer secret key,
   "tumblr_consumer_key" => "",
   "tumblr_consumer_secret" => "",
-  "pinterest_app_id" => "",
-  "pinterest_app_secret" => "",
-  "linkedin_client_id" => "",
-  "linkedin_client_secret" => ""
 );

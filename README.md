@@ -92,6 +92,11 @@ picture : Path to image you wish to share
 caption : Text to go inside Facebook post          
 link : URL to go to when the post is clicked
 
+#### getFacebookProfilePicture(params, success, error)     
+**params**     
+width : width of picture you want (height will match) (default is 50px)
+
+
 ## Twitter
 #### postTwitterTweet(params, success, error)
 **params**      

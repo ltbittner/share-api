@@ -48,6 +48,12 @@ export default class Home extends Component {
 
 	}
 
+	fbProfilePicture() {
+
+		this.share.getFacebookProfilePicture(null, this.successTwo.bind(this));
+
+	}
+
 	twTweet() {
 
 		this.share.postTwitterTweet({message: "TEST TWEET YO"}, this.success.bind(this));
@@ -121,6 +127,10 @@ export default class Home extends Component {
 		alert("DID IT!");
 	}
 
+	successTwo(resp) {
+		console.log(resp);
+	}
+
 	render() {
 		return (
 			<div className='content home'>
@@ -133,6 +143,8 @@ export default class Home extends Component {
 				<div onClick={this.fbVideo.bind(this)}>FACEBOOK VIDEO</div>
 
 				<div onClick={this.fbIntent.bind(this)}>FACEBOOK INTENT</div>
+
+				<div onClick={this.fbProfilePicture.bind(this)}>FACEBOOK PICTURE</div>
 
 				<br/><br/>
 

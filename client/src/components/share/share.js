@@ -82,6 +82,14 @@ export default class Share {
 		this.facebook.intent(params);
 	}
 
+	getFacebookProfilePicture(params, success, error) {
+
+		if(!this.facebookEnabled) error("Facebook is not enabled");
+
+		this.facebook.getProfilePicture(params, success, error);
+
+	}
+
 	postTwitterTweet(params, success, error) {
 
 		if(!this.twitterEnabled) error("Twitter is not enabled");
