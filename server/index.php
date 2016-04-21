@@ -7,6 +7,10 @@ header('Access-Control-Allow-Origin: ' . $http_origin);
 header('Access-Control-Allow-Headers: X-Requested-With');
 header('Access-Control-Allow-Credentials: true');
 
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+	die();
+}
+
 
 if(!session_id()) {
     session_start();
