@@ -1,4 +1,5 @@
 <?php
+
 $config = include('config/settings.php');
 
 $http_origin = $_SERVER['HTTP_ORIGIN'];

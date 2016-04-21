@@ -94,6 +94,7 @@ export default class Tumblr {
 							} else {
 								self.blogs = null;
 								self.getTumblrLogin();
+								reject();
 							}
 						},
 						error: (resp) => {

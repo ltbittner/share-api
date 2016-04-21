@@ -82,7 +82,7 @@ export default class Facebook {
 
 			var int = setInterval(() => {
 				if(w.closed) {
-					this.checkTwitterLogin(callback);
+					this.checkFacebookLogin(callback);
 					clearInterval(int);
 					
 				}
