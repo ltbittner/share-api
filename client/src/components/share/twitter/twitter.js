@@ -1,6 +1,6 @@
-import Reqwest from 'reqwest';
+var Reqwest = require('reqwest');
 
-export default class Twitter {
+class Twitter {
 
 	constructor(path) { 
 		
@@ -202,3 +202,5 @@ export default class Twitter {
 	}
 
 }
+
+module.exports = Twitter;

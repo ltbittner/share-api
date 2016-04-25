@@ -1,6 +1,6 @@
-import Reqwest from 'reqwest';
+var Reqwest = require('reqwest');
 
-export default class Tumblr {
+class Tumblr {
 
 	constructor(path) { 
 		
@@ -262,3 +262,5 @@ export default class Tumblr {
 	}
 
 }
+
+module.exports = Tumblr;

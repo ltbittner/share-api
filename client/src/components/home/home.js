@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as global from '../../redux/actions/action-global';
 
-import Share from '../share/share';
+import Share from 'tb-share-client';
+// import Share from '../share/share';
 
 export default class Home extends Component {
 	constructor() {

@@ -1,9 +1,9 @@
-import Reqwest from 'reqwest';
-import Facebook from './facebook/facebook';
-import Twitter from './twitter/twitter';
-import Tumblr from './tumblr/tumblr';
+var Reqwest = require('reqwest');
+var Facebook = require('./facebook/facebook');
+var Twitter = require('./twitter/twitter');
+var Tumblr = require('./tumblr/tumblr');
 
-export default class Share {
+class Share {
 
 	constructor(config) {
 
@@ -192,6 +192,9 @@ export default class Share {
 	}
 
 }
+
+
+module.exports = Share;
 
 
 

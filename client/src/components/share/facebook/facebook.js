@@ -1,6 +1,6 @@
-import Reqwest from 'reqwest';
+var Reqwest = require('reqwest');
 
-export default class Facebook {
+class Facebook {
 
 	constructor(path, id) { 
 		this.pathToServer = path;
@@ -310,7 +310,7 @@ export default class Facebook {
 
 }
 
-
+module.exports = Facebook;
 
 
 
