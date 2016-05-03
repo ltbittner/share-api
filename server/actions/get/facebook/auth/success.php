@@ -3,7 +3,7 @@
 class FacebookAuthSuccess extends RestWork {
 
 	function action() {
-
+		date_default_timezone_set('UTC');
 		$config = include("keys.php");
 	    $fb = new Facebook\Facebook([
 	      'app_id' => $config['app_id'],
@@ -11,10 +11,11 @@ class FacebookAuthSuccess extends RestWork {
 	      'default_graph_version' => 'v2.4',
 	    ]);
 
+	    $settings = include("config/settings.php");
 	
 	    $helper = $fb->getRedirectLoginHelper();
 	    try {
-	      $accessToken = $helper->getAccessToken();
+	      $accessToken = $helper->getAccessToken($settings['domain'] . '/facebook/auth/success');
 	    } catch(Facebook\Exceptions\FacebookResponseException $e) {
 	      echo 'Graph returned an error: ' . $e->getMessage();
 	      exit;
