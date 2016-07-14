@@ -38,6 +38,8 @@ Once you're done getting your keys, open up 'config/settings.php'. There are thr
 - **enable_request_limiting**: Set to true if you want to set a max amount of requests per hour
 - **max_requests_per_hour**: Max requests per hour. Only relevant is previous is set to true.
 
+**IMPORTANT** : The origin of your requests must EXACTLY match the domain you entered above. This goes as far as the www. Make sure that if you enter "http://somewebsite.com" (no www), that your server removes the www. from all requests.
+
 
 # Usage
 ---
@@ -165,6 +167,11 @@ function successCallback() {
     console.log("successfully made post");
 }
 ```
+
+# TODO
+---
+
+- Fix uploading files from external addresses - see OddMomOut - Tumblr and Twitter
 
 
 

@@ -91,6 +91,37 @@ abstract class RestWork {
 		return $s;
 	}
 
+	public function getRandomString() {
+		return $this->_generateToken();
+	}
+
+	//TEST
+	public function createTempFile($file, $name) {
+		if(!file_exists('/shareTemp')) {
+ 			mkdir('/shareTemp');
+ 		}
+
+ 		$file = fopen('/shareTemp/' . $name, 'w');
+
+ 		$source = file_get_contents($file);
+
+ 		fwrite($file, $source);
+
+ 		return '/shareTemp/' . $name;
+	}
+
+	//TEST
+	public function deleteTempFile($name) {
+		unlink('/shareTemp/' . $name);
+
+		return true;
+	}
+
+	//TODO
+	public function checkForHTTP($file) {
+
+	}
+
 }
 
 

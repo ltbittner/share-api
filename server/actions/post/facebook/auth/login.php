@@ -3,6 +3,7 @@
 class FacebookAuthLogin extends RestWork {
 
 	function action() {
+		session_start();
 		$this->generateSuccessResponse($this->generateLoginLink());
 	}
 
@@ -15,10 +16,12 @@ class FacebookAuthLogin extends RestWork {
 	      'app_id' => $config['app_id'],
 	      'app_secret' => $config['app_secret'],
 	      'default_graph_version' => 'v2.4',
+	      'default_access_token' => $config['app_id'] . '|' . $config['app_secret']
 	    ]);
 
 
 	    $helper = $fb->getRedirectLoginHelper();
+
 	    $permissions = array();
 
 	    foreach (explode(',', $config['facebook_permissions']) as $v) {
